@@ -3,26 +3,28 @@
 }
 
 @model UniversityRegistrar.Models.Course;
+<main class="container">
 
-<h2>Course Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.CourseName): @Html.DisplayFor(model => model.CourseName)</h3>
+  <h2>Course Details</h2>
+  <hr />
+  <h3>@Html.DisplayNameFor(model => model.CourseName): @Html.DisplayFor(model => model.CourseName)</h3>
 
-@if (@Model.JoinEntities.Count == 0)
-{
-  <p>This course does not contain any students yet</p>
-}
-else
-{
-  <h4>All students in the course:</h4>
-  <ul>
-  @foreach (var join in Model.JoinEntities)
-    {
-      <li>@join.Student.StudentName</li>
-    }
-  </ul>
-}
+  @if (@Model.JoinEntities.Count == 0)
+  {
+    <p>This course does not contain any students yet</p>
+  }
+  else
+  {
+    <h4>All students in the course:</h4>
+    <ul>
+      @foreach (var join in Model.JoinEntities)
+      {
+        <li>@join.Student.StudentName</li>
+      }
+    </ul>
+  }
 
-<p>@Html.ActionLink("Back to courses", "Index")</p>
-<p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
-<p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
+  <p>@Html.ActionLink("Back to courses", "Index")</p>
+  <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
+  <p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
+</main>
