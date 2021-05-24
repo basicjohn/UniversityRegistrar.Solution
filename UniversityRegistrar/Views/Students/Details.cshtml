@@ -1,35 +1,35 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 
-@model UniversityRegistrar.Models.Item
+@model UniversityRegistrar.Models.Student
 
-<h2>Item Details</h2>
+<h2>Student Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+<h3>@Html.DisplayNameFor(model => model.StudentName): @Html.DisplayFor(model => model.StudentName)</h3>
 
-@if(@Model.JoinEntities.Count == 0)
+@if (@Model.JoinEntities.Count == 0)
 {
-  <p>This item does not belong to any categories</p>
+  <p>This student is not enrolled in any courses.</p>
 }
 else
 {
-  <h4>Categories the item belongs to:</h4>
+  <h4>Courses the student is enrolled in:</h4>
   <ul>
-  @foreach(var join in Model.JoinEntities)
-  {
-    <li>@join.Category.Name</li>
-    @using (Html.BeginForm("DeleteCategory", "Items"))
+  @foreach (var join in Model.JoinEntities)
     {
-      @Html.Hidden("joinId", @join.CategoryItemId)
-      <input type="submit" value="Delete"/>
+      <li>@join.Course.CourseName</li>
+      @using (Html.BeginForm("DeleteCourse", "Students"))
+      {
+        @Html.Hidden("joinId", @join.CourseStudentId)
+        <input type="submit" value="Delete" />
+      }
     }
-  }
   </ul>
 }
 
-<p>@Html.ActionLink("Add a Category", "AddCategory", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.StudentId })</p>
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p> *@
+<p>@Html.ActionLink("Edit Student", "Edit", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId })</p>

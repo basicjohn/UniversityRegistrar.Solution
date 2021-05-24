@@ -4,18 +4,21 @@
 
 @model UniversityRegistrar.Models.Student
 
-<h4>Add a new task</h4>
+<h4>Enroll new student</h4>
 
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.StudentName)
-  @Html.TextBoxFor(model => model.StudentName)
+  @Html.TextBoxFor(model => model.StudentName,
+new { required = "required" })
 
-  @Html.Label("Select category")
-  @Html.DropDownList("CategoryId")
+  @Html.Label("Select course")
+  @Html.DropDownList("CourseId")
 
-  @Html.textBox
+  @Html.LabelFor(model => model.DateOfEnrollment)
+  @Html.TextBoxFor(model => model.DateOfEnrollment,
+new { @type = "date" , @value = DateTime.Today })
 
-  <input type="submit" value="Add new item" class="btn btn-default" />
+  <input type="submit" value="Enroll" class="btn btn-default" />
 }
-<p>@Html.ActionLink("Show all items", "Index")</p>
+<p>@Html.ActionLink("Show all Students", "Index")</p>
