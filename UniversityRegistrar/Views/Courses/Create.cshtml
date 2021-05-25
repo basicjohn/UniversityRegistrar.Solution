@@ -24,5 +24,6 @@
     @Html.TextBoxFor(model => model.TeacherName)
     <input type="submit" value="Add new course" />
   }
-  <p>@Html.ActionLink("Show all courses", "Index")</p>
+  <a href='@Url.Action("Index", "Courses")' role="button" class="btn btn-warning">Back to courses</a>
+  @* <p>@Html.ActionLink("Show all courses", "Index")</p> *@
 </main>

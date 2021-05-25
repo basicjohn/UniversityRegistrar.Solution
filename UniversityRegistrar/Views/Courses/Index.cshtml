@@ -18,7 +18,8 @@
       <li>@Html.ActionLink($"{course.CourseName}", "Details", new { id = course.CourseId })</li>
     }
   </ul>
-
-  <p>@Html.ActionLink("Add new course", "Create")</p>
-  <p>@Html.ActionLink("Home", "Index", "Home")</p>
+  <a href='@Url.Action("Create", "Courses")' role="button" class="btn btn-warning">Add a Course</a>
+  @* <p>@Html.ActionLink("Add new course", "Create")</p> *@
+  <a href='@Url.Action("Index", "Home")' role="button" class="btn btn-warning">Home</a>
+  @* <p>@Html.ActionLink("Home", "Index", "Home")</p> *@
 </main>
