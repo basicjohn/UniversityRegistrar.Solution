@@ -35,11 +35,13 @@
     }
   </div>
   <div class="row sheparding-buttons">
-    <a href='@Url.Action("Index", "Home")' role="button" class="btn btn-warning">Home</a>
+    <a href='@Url.Action("Index", "Home", new {@class="btn"})' role="button" class="btn btn-warning">Home</a>
     @* <p>@Html.ActionLink("Back to courses", "Index", new {@class="btn"})</p> *@
-    <a href='@Url.Action("Edit", "Courses")' role="button" class="btn btn-warning">Edit course</a>
+    <a href='@Url.Action("Edit", "Courses", new { id = Model.CourseId })' role="button" class="btn btn-warning">Edit
+      course</a>
     @* <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p> *@
-    <a href='@Url.Action("Delete", "Courses")' role="button" class="btn btn-warning">Delete course</a>
+    <a href='@Url.Action("Delete", "Courses", new { id = Model.CourseId })' role="button" class="btn btn-warning">Delete
+      course</a>
     @* <p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p> *@
   </div>
 </main>

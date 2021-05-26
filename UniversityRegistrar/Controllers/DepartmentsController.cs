@@ -6,18 +6,18 @@
 
 // namespace UniversityRegistrar.Controllers
 // {
-//   public class CoursesController : Controller
+//   public class DepartmentsController : Controller
 //   {
 //     private readonly UniversityRegistrarContext _db;
 
-//     public CoursesController(UniversityRegistrarContext db)
+//     public DepartmentsController(UniversityRegistrarContext db)
 //     {
 //       _db = db;
 //     }
 
 //     public ActionResult Index()
 //     {
-//       List<Course> model = _db.Courses.ToList();
+//       List<Department> model = _db.Departments.ToList();
 //       return View(model);
 //     }
 
@@ -27,24 +27,25 @@
 //     }
 
 //     [HttpPost]
-//     public ActionResult Create(Course course)
+//     public ActionResult Create(Department department)
 //     {
-//       _db.Courses.Add(course);
+//       _db.Departments.Add(department);
 //       _db.SaveChanges();
 //       return RedirectToAction("Index");
 //     }
 
 //     public ActionResult Details(int id)
 //     {
-//       var thisCourse = _db.Courses
-//           .Include(course => course.JoinEntities)
+//       var thisDepartment = _db.Departments
+//           .Include(department => department.JoinEntities)
 //           .ThenInclude(join => join.Student)
-//           .FirstOrDefault(course => course.CourseId == id);
-//       return View(thisCourse);
+//           .FirstOrDefault(department => department.DepartmentId == id);
+//       return View(thisDepartment);
 //     }
 //     public ActionResult Edit(int id)
 //     {
-//       var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+//       var thisCourse = _db.Courses.FirstOrDefault(department => department.DepartmentId == id);
+//       ViewBag.StudentId = new SelectList(_db.Students, )
 //       return View(thisCourse);
 //     }
 

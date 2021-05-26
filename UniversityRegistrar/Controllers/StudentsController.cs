@@ -53,7 +53,7 @@ namespace UniversityRegistrar.Controllers
     {
       var thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
       thisStudent.DateOfEnrollment = thisStudent.DateOfEnrollment.Date;
-      ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "Name");
+      ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseName");
       return View(thisStudent);
     }
 
@@ -98,9 +98,13 @@ namespace UniversityRegistrar.Controllers
     {
       var thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
       _db.Students.Remove(thisStudent);
+      // var registeredCourse = _db.CourseStudent.FirstOrDefault(courseStudent => courseStudent.StudentId == id);
+      // _db.CourseStudent.Remove(registeredCourse);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+
 
     [HttpPost]
     public ActionResult DeleteCourse(int joinId)

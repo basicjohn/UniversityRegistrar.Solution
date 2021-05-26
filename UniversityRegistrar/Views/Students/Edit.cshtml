@@ -26,6 +26,6 @@
 
     <input type="submit" value="Save" class="btn btn-default" />
   }
-
-  <p>@Html.ActionLink("Back to Enrolled Students", "Index")</p>
+  <a href='@Url.Action("Index","Students")' role="button" class="btn btn-warning">Back to Enrolled Students</a>
+  @* <p>@Html.ActionLink("Back to Enrolled Students", "Index")</p> *@
 </main>
