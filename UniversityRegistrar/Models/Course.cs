@@ -6,7 +6,8 @@ namespace UniversityRegistrar.Models
   {
     public Course()
     {
-      this.JoinEntities = new HashSet<CourseStudent>();
+      this.JoinEntities1 = new HashSet<CourseStudent>();
+      this.JoinEntities2 = new HashSet<CourseDepartment>();
     }
 
     public int CourseId { get; set; }
@@ -15,6 +16,7 @@ namespace UniversityRegistrar.Models
     public string Description { get; set; }
     public string CourseSchedule { get; set; }
     public string TeacherName { get; set; }
-    public virtual ICollection<CourseStudent> JoinEntities { get; set; }
+    public virtual ICollection<CourseStudent> JoinEntities1 { get; set; }
+    public virtual ICollection<CourseDepartment> JoinEntities2 { get; set; }
   }
 }

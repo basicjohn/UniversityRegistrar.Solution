@@ -1,0 +1,27 @@
+Department index
+• Option to add department
+
+Course Create page
+• Option to add Departments in the form
+
+Departments Detail page
+• view all courses in department
+• Option to remove course
+• Option to edit
+
+
+Student Create Controller
+• Find Department Id through selected Course
+
+
+
+
+
+Potentially out of Project Scope
+
+Course Index Page
+• Sort Course listings by department
+
+Department Create page
+• (possibility) Checklist to add multiple courses at once
+

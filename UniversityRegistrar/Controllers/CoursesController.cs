@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using UniversityRegistrar.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace UniversityRegistrar.Controllers
 {
@@ -23,6 +24,8 @@ namespace UniversityRegistrar.Controllers
 
     public ActionResult Create()
     {
+      // ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseName");
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
       return View();
     }
 

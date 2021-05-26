@@ -1,42 +1,41 @@
-@* @{
+@{
   Layout = "_Layout";
-  }
+}
 
-  @model UniversityRegistrar.Models.Course;
-  <main class="container">
+@model UniversityRegistrar.Models.Department;
+<main class="container">
   <div class="row course-details">
-  <h2>Course Details</h2>
-  <hr />
-  <h3>@Html.DisplayNameFor(model => model.CourseName): @Html.DisplayFor(model => model.CourseName) |
-  @Html.DisplayFor(model => model.CourseNumber)</h3>
-  @Html.HiddenFor(model => model.CourseId)
+    <h2>Department Details</h2>
+    <hr />
+    <h3>@Html.DisplayNameFor(model => model.DepartmentName): @Html.DisplayFor(model => model.DepartmentName)</h3>
+    @Html.HiddenFor(model => model.DepartmentId)
 
-  <p>@Html.DisplayFor(model => model.Description)</p>
-  <p>@Html.DisplayFor(model => model.CourseSchedule)</p>
-  <p>@Html.DisplayFor(model => model.TeacherName)</p>
+    <p>@Html.DisplayFor(model => model.Description)</p>
+    <p>@Html.DisplayFor(model => model.ContactInfo)</p>
+    <p>@Html.DisplayFor(model => model.DeanName)</p>
   </div>
   <div class="row student-details">
 
-  @if (@Model.JoinEntities.Count == 0)
-  {
-  <p>This course does not contain any students yet</p>
-  }
-  else
-  {
-  <h4>All students in the course:</h4>
+    @if (@Model.JoinEntities.Count == 0)
+    {
+      <p>This department does not contain any students yet</p>
+    }
+    else
+    {
+      <h4>All Courses in the Department:</h4>
 
-  @foreach (var join in Model.JoinEntities)
-  {
-  <div class="col-md-3">
-  <h2><span class="title">Name:</span> <span class="content">@join.Student.StudentName</span></h2>
-  <h3><span class="title">Id Number:</span> <span class="content">@join.Student.StudentId</span></h3>
-  </div>
-  }
-  }
+      @foreach (var join in Model.JoinEntities)
+      {
+        <div class="col-md-3">
+          <h2><span class="title">Name:</span> <span class="content">@join.Course.CourseName</span></h2>
+          <h3><span class="title">Id Number:</span> <span class="content">@join.Course.CourseId</span></h3>
+        </div>
+      }
+    }
   </div>
   <div class="row sheparding-buttons">
-  <p>@Html.ActionLink("Back to courses", "Index")</p>
-  <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
-  <p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
+    <p>@Html.ActionLink("Back to departments", "Index")</p>
+    <p>@Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentId })</p>
+    <p>@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId })</p>
   </div>
-  </main> *@
+</main>
