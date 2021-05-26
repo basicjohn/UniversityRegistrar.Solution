@@ -1,17 +1,16 @@
 Department index
-• Option to add department
+• Option to add department (Complete)
+
 
 Course Create page
-• Option to add Departments in the form
+• Option to add Departments in the form (displays in view but not working in the controller)
 
 Departments Detail page
-• view all courses in department
-• Option to remove course
-• Option to edit
+• view all courses in department (complete)
+• Option to remove department (complete)
+• Option to edit (complete)
+• Option to add class to existing department (complete)
 
-
-Student Create Controller
-• Find Department Id through selected Course
 
 
 

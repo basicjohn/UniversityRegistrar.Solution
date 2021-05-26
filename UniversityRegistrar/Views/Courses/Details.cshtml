@@ -17,7 +17,15 @@
   </div>
   <div class="row student-details">
 
-    @if (@Model.JoinEntities.Count == 0)
+    @foreach (var join in Model.JoinEntities2)
+    {
+      <div class="col-md-3">
+        <h2><span class="title">Department Name:</span> <span class="content">@join.Department.DepartmentName</span></h2>
+        <h3><span class="title">Id Number:</span> <span class="content">@join.Department.DepartmentId</span></h3>
+      </div>
+    }
+
+    @if (@Model.JoinEntities1.Count == 0)
     {
       <p>This course does not contain any students yet</p>
     }
@@ -25,7 +33,7 @@
     {
       <h4>All students in the course:</h4>
 
-      @foreach (var join in Model.JoinEntities)
+      @foreach (var join in Model.JoinEntities1)
       {
         <div class="col-md-3">
           <h2><span class="title">Name:</span> <span class="content">@join.Student.StudentName</span></h2>

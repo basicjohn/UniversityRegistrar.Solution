@@ -30,17 +30,21 @@ namespace UniversityRegistrar.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Course course)
+    public ActionResult Create(Course course, int DepartmentId)
     {
       _db.Courses.Add(course);
       _db.SaveChanges();
+      if(DepartmentId != 0)
+      {
+        _db.CourseDepartment.Add(new CourseDepartment() { DepartmentId = DepartmentId, CourseId = course.CourseId});
+      }
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Details(int id)
     {
       var thisCourse = _db.Courses
-          .Include(course => course.JoinEntities)
+          .Include(course => course.JoinEntities1)
           .ThenInclude(join => join.Student)
           .FirstOrDefault(course => course.CourseId == id);
       return View(thisCourse);
